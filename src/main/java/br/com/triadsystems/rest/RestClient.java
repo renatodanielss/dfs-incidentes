@@ -17,10 +17,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 public class RestClient {
 	private String propertiesFile;
 	private String restURL;
-	private Set<String> keys;
 
+	public RestClient(String restURL) {
+		this.restURL = restURL;
+	}
+	
 	public RestClient(String propertiesFile, String restURL) {
-		super();
 		this.propertiesFile = propertiesFile;
 		this.restURL = restURL;
 	}
@@ -35,7 +37,7 @@ public class RestClient {
 			InputStream inputStream = loader.getResourceAsStream(this.propertiesFile);
 			headersProperties.load(inputStream);
 			
-			this.keys = headersProperties.stringPropertyNames();
+			Set<String> keys = headersProperties.stringPropertyNames();
 			for (String key : keys) {
 				//System.out.println(key + ": " + headersProperties.getProperty(key));
 				restRequest.setHeader(key, headersProperties.getProperty(key));
@@ -52,5 +54,21 @@ public class RestClient {
 		while ((strContent = restContent.readLine()) != null) {
 			System.out.println(strContent);
 		}
+	}
+
+	public String getPropertiesFile() {
+		return propertiesFile;
+	}
+
+	public void setPropertiesFile(String propertiesFile) {
+		this.propertiesFile = propertiesFile;
+	}
+
+	public String getRestURL() {
+		return restURL;
+	}
+
+	public void setRestURL(String restURL) {
+		this.restURL = restURL;
 	}
 }
