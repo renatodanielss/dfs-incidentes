@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.dfs</groupId>
-	<artifactId>DFSIncidentes</artifactId>
+	<artifactId>dfs-incidentes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>DFSIncidentes</name>
+	<name>dfs-incidentes</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -16,7 +16,7 @@
 	</properties>
 
 	<build>
-		<finalName>DFSIncidentes</finalName>
+		<finalName>dfs-incidentes</finalName>
 	</build>
 
 	<dependencies>
